@@ -1,0 +1,7 @@
+services:
+  podcast2short:
+    image: molinaig/podcast2short:latest
+    container_name: podcast2short
+    ports:
+      - "8000:8000"
+    restart: unless-stopped

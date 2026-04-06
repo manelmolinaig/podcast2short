@@ -1,0 +1,88 @@
+{
+  "name": "Ejemplo podcast2short",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "95751bbe-1d2c-4b49-9f5f-81b7bdb6436b",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://192.168.1.100:8000/generate",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "background_image",
+              "inputDataFieldName": "background_image"
+            },
+            {
+              "parameterType": "formBinaryData",
+              "name": "image",
+              "inputDataFieldName": "image"
+            },
+            {
+              "parameterType": "formBinaryData",
+              "name": "audio",
+              "inputDataFieldName": "audio"
+            },
+            {
+              "name": "wave_color",
+              "value": "#F54927"
+            },
+            {
+              "name": "title",
+              "value": "=Texto que aparecerá en la parte inferior"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 600000
+        }
+      },
+      "id": "1bfd6d6c-eb1f-424e-afc3-bfa72b38d861",
+      "name": "Generamos el video",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        224,
+        0
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Generamos el video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "69b44e13-2113-4fc4-b7b0-f49195bdf443",
+  "meta": {
+    "instanceId": "d6d3d43531cfdd0b620ff87be66558770e0670c2c19fb006b9ed208c030a7d9b"
+  },
+  "id": "4fgS8Uv_CssoEublbDrjY",
+  "tags": []
+}
